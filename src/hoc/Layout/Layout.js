@@ -1,43 +1,38 @@
 import React, { Component } from 'react';
 
 import BurgerAux from '../BurgerAux/BurgerAux';
+import classes from './Layout.css';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 
-import classes from './Layout.css';
-
-
 class Layout extends Component {
-
     state = {
         showSideDrawer: false
     }
 
-    sideDraweClosedHandler = () => {
-        this.setState({ showSideDrawer: false });
+    sideDrawerClosedHandler = () => {
+        this.setState( { showSideDrawer: false } );
     }
 
     sideDrawerToggleHandler = () => {
-        this.setState( (prevState) => {
-           return { showSideDrawer: !prevState.showSideDrawer };
-        });
+        this.setState( ( prevState ) => {
+            return { showSideDrawer: !prevState.showSideDrawer };
+        } );
     }
 
-    render() {
+    render () {
         return (
             <BurgerAux>
-                <Toolbar drawerToogleClicked={this.sideDrawerToggleHandler} />
+                <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler} />
                 <SideDrawer
                     open={this.state.showSideDrawer}
-                    closed={this.sideDraweClosedHandler} />
+                    closed={this.sideDrawerClosedHandler} />
                 <main className={classes.Content}>
                     {this.props.children}
                 </main>
-            </BurgerAux >
+            </BurgerAux>
         )
     }
 }
-
-
 
 export default Layout;

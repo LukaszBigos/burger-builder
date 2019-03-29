@@ -1,3 +1,3 @@
-const burgerAux = (props) => props.children;
+const burgerBurgerAux = (props) => props.children;
 
-export default burgerAux;
+export default burgerBurgerAux;
